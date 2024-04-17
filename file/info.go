@@ -85,3 +85,40 @@ import (
 		return
 	}
 	fmt.Println("Absolute path:", absolutePath)
+
+	
+	// Create a buffered writer
+	file, err := os.Create("output.txt")
+	if err != nil {
+		fmt.Println("Error creating file:", err)
+		return
+	}
+	defer file.Close()
+	writer := bufio.NewWriter(file)
+
+	// Write data to the buffered writer
+	data := []byte("Hello, World!")
+	_, err = writer.Write(data)
+	if err != nil {
+		fmt.Println("Error writing to file:", err)
+		return
+	}
+
+	// Flush the buffered writer to ensure data is written to the file
+	err = writer.Flush()
+	if err != nil {
+		fmt.Println("Error flushing writer:", err)
+		return
+	}
+
+	// Create a buffered reader
+	reader := bufio.NewReader(file)
+
+	// Read data from the buffered reader
+	readData, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("Error reading from file:", err)
+		return
+	}
+
+	fmt.Println("Read data:", readData)
