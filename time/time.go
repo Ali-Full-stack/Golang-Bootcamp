@@ -17,3 +17,8 @@ fmt.Println(now.Second())
 
 // to sleep the program for 2 second
 time.Sleep(2 * time.Second)
+
+// to find out difference 
+time.Since(now)
+
+// to parse the string
