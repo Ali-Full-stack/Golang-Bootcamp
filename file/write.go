@@ -23,11 +23,11 @@ import (
 		return
 	}
 	// read a file
-	fi, err :=os.ReadFile(file)
+	fi, err :=os.ReadFile(user.txt)
 	if err != nil {
 		fmt.Println("error reading file :",err)
 		return
 	}
 
 	// display the content of  file to the terminal
-	fmt.Println("file content :",fi)
+	fmt.Printf("file content : %s\n",fi)
