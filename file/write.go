@@ -31,3 +31,17 @@ import (
 
 	// display the content of  file to the terminal
 	fmt.Printf("file content : %s\n",fi)
+
+	// open new file in append|create|readwrite mode called text.txt
+	file, err := os.OpenFile("text.txt", os.O_APPEND|os.O_RDWR|os.O_CREATE, 0644)
+	if err != nil {
+		fmt.Println("error opening file:",err)
+		return
+	}
+	defer file.Close()
+	// declare variable and assign value to it
+	line := "hello world\n"
+	// append variable to the file using fprintf
+	n, err :=fmt.Fprintln(file, line)
+	// display how many bytes appended to file
+	fmt.Println("Added succesfully : total bytes",n)
