@@ -23,3 +23,22 @@ func Sum(s []int, c chan int){
 func Sum2(a, b int, ch chan int){
 	ch <- a + b
 }
+
+func Add(a,b int,)int{
+	return a + b 
+}
+
+func Multiply(a,b int)int{
+	return a * b
+}
+
+func Power(a int)int{
+	return a * a
+}
+
+func Collect(a,b,c int, ch chan int){
+
+	ch <- a 
+	ch <- b
+	ch <- c
+}

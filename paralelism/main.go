@@ -21,8 +21,20 @@ func main(){
 
 	// fmt.Println(x,y,x+y)
 
-	ch :=make(chan int)
+	// ch :=make(chan int)
 
-	go p.Sum2(1,2,ch)
-	fmt.Println(<-ch)
+	// go p.Sum2(1,2,ch)
+	// fmt.Println(<-ch)
+
+	a :=p.Multiply(2,3)
+	b :=p.Power(3)
+	c :=p.Add(5,8)
+
+	chl :=make(chan int)
+
+	go p.Collect(a,b,c,chl)
+	x,y,z := <-chl,<-chl,<-chl
+
+	fmt.Println(x,y,z)
+
 }
