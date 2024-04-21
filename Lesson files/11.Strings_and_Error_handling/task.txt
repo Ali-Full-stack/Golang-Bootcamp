@@ -1,0 +1,8 @@
+Doira, to'rtburchak va uchburchak kabi turli shakllarning maydonini hisoblaydigan 
+Area() method yordamida Shape deb nomlangan interfeysni yarating. 
+Har bir shakl uchun Area() usulini qo'llang va 
+shakllar to'plamining umumiy maydonini hisoblash funksiyasini yarating.
+
+type Shape interface {
+    Area() float64
+}
