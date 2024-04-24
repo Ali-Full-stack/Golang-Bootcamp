@@ -28,20 +28,20 @@ func (c *Counter) Increment(n int) {
 }
 
 func main() {
-	var userInput, num int
+	var num int
 	fmt.Print("Up to Number >> ")
 	fmt.Scan(&num)
-	fmt.Print("Number of goroutines >> ")
-	fmt.Scan(&userInput)
 	
-
 	counter := Counter{}
 
-	wg.Add(userInput)
+	wg.Add(5)
 
-	for i := 0; i < userInput; i++ {
-		go counter.Increment(num)
-	}
+	go counter.Increment(num)
+	go counter.Increment(num)
+	go counter.Increment(num)
+	go counter.Increment(num)
+	go counter.Increment(num)
+	
 	wg.Wait()
 	fmt.Println(counter.Numbers)
 
